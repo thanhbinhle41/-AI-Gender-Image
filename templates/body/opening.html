@@ -1,0 +1,125 @@
+<div>
+  <div class="body-opening">
+    <div class="body-opening__title">
+      <h1>Photo Editing and Graphic Design Made for Everyone</h1>
+      <p>
+        BeFunky's all-in-one online Creative Platform has everything you need to
+        easily edit photos, create graphic designs, and make photo collages.
+      </p>
+      <button
+        type="button"
+        class="btn btn-primary body-opening__btn-started"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
+        Get Started
+      </button>
+    </div>
+    <div class="slide-show">
+      <div class="slide active">
+        <img
+          src="https://www.befunky.com/images/prismic/257696e2-c8e3-4fe6-a676-094bd3422c07_hero-photo-editor.jpg?auto=webp&format=jpg&width=900"
+          alt="slide show"
+          class="img_slider"
+        />
+      </div>
+    </div>
+  </div>
+  <form
+    action="/"
+    method="post"
+    enctype="multipart/form-data"
+    id="image_form"
+  >
+    {% csrf_token %}
+    <div class='popular_Features-title'>
+      <h2 style="margin: 96px 0 0 0;">What Would You Like to Do Today?</h2>
+    </div>
+    <div class='edit_photo-wrapper'>
+        <div class='edit_photo-image'>
+            <div class='input_img-wrapper'>
+                <img id="previewImg" src="{{img}}" alt="Placeholder"/>
+                <div class='edit_img-content'>
+                    <p>Photo effects and tools for enhancing your photos</p>
+                    {{ form.as_p }}
+                </div>
+            </div>
+
+            <div class='input_img-wrapper'>
+                <img src="{{predict}}" alt="output"></img>
+                <div class='edit_img-content' style="padding-bottom: 43px;">
+                    <p>Templates for creating banners, flyers, cards, & more</p>
+                    <input type="submit" value="Submit" class='input_img-btn' />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <p>
+      
+    </p>
+  </form>
+
+
+  <div
+    class="modal fade"
+    id="exampleModalCenter"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            What Would You Like to Do Today?
+          </h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            action="/"
+            method="post"
+            enctype="multipart/form-data"
+            id="image_form"
+          >
+            {% csrf_token %}
+            
+            <div class='edit_photo-wrapper'>
+                <div class='edit_photo-image'>
+                    <div class='input_img-wrapper' style="width:500px; height: auto">
+                        <img id="previewImg" src="{{img}}" alt="Placeholder" style="width:500px; height: auto"/>
+                        <div class='edit_img-content'>
+                            <p>Photo effects and tools for enhancing your photos</p>
+                            {{ form.as_p }}
+                        </div>
+                    </div>
+
+                    <div class='input_img-wrapper' style="width:500px; height: auto">
+                        <img src="{{predict}}" alt="output"
+                            style="width:500px; height: auto"></img>
+                        <div class='edit_img-content'>
+                            <p>Templates for creating banners, flyers, cards, & more</p>
+                            <input type="submit" value="Submit" class='input_img-btn' />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <p>
+              
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
